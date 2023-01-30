@@ -2,7 +2,6 @@
 /*Sitio web www.locoaliensoft.com*/
 /*www.facebook.com/CulturaInformatica*/
 
-
 		* {margin: 0; padding: 0;}
 		canvas {display: block;}
 	
@@ -196,4 +195,75 @@
 			}
 		  }		
 
-/*Version mejorada. Espero les guste*/
+		  /*drop down*/ 
+
+		  div.pull {
+			position: relative;
+			top: -200px;
+			z-index: 12;
+			-webkit-transition: top 0.6s ease-in-out;
+		  }
+		  div.pull div.pulldown_menu {
+			background: #ae0e21;
+			width: 100%;
+			padding: 15px;
+			height: 200px;
+			position: relative;
+			-webkit-box-sizing: border-box;
+			box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.5);
+		  }
+		  div.pull div.pulldown_menu span.pig {
+			position: relative;
+			float: right;
+		  }
+		  div.pull div.pulldown_menu span.pig img {
+			height: 150px;
+			border: 1px solid #6c0914;
+			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+		  }
+		  div.pull div.pulldown_menu span.pig p {
+			font-size: 13px;
+			color: white;
+			margin-top: 0;
+		  }
+		  div.pull div.pulldown {
+			width: 50px;
+			height: 10px;
+			-webkit-border-bottom-right-radius: 4px;
+			-webkit-border-bottom-left-radius: 4px;
+			margin: 0 auto;
+			background: #ae0e21;
+			border: 1px solid #920c1c;
+			border-top: 0;
+			position: relative;
+		  }
+		  div.pull div.pulldown::after {
+			position: absolute;
+			top: -3px;
+			left: 0;
+			content: ' ';
+			height: 3px;
+			background: #ae0e21;
+			width: 100%;
+		  }
+		  div.pull div.pulldown::before {
+			position: absolute;
+			top: 2px;
+			left: 20px;
+			content: ' ';
+			height: 3px;
+			background: #ae0e21;
+			width: 0px;
+			height: 0px;
+			border-style: solid;
+			border-width: 6px 5px 0 5px;
+			border-color: #750916 transparent transparent transparent;
+		  }
+		  div.pull:hover {
+			top: 0;
+			-webkit-transition: top 0.5s ease-in-out;
+		  }
+		  div.pull.clicked {
+			top: 0;
+		  }
+		  

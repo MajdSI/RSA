@@ -61,3 +61,9 @@ function hacking(){
 	setInterval(dibujar,120);//velocidad a la que se ejecuta la funcion en milisegundos
 
 }
+
+jQuery(document).ready(function () {
+	jQuery('div.pull').click(function () {
+	  jQuery(this).toggleClass('clicked');
+	});
+  });
