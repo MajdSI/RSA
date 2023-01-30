@@ -33,13 +33,15 @@
   <h2>RSA</h2>
   <form>
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input id="enteredText" type="text" name="" required="">
       <label>Write The Number To Encypt/Decrypt</label>
     </div>
     <div id="result">
-      <label>Result: </label>
+      <label>Result: 
+        <p id="outpot"></p>
+      </label>
     </div>
-    <a href="#">
+    <a href="#" onclick="encrypt()">
       <span></span>
       <span></span>
       <span></span>
@@ -49,7 +51,7 @@
        
     </a> 
 
-    <a href="#">
+    <a href="#" onclick="decrypt()">
       <span></span>
       <span></span>
       <span></span>
@@ -59,6 +61,30 @@
   </form>
 </div>
 
-
+<script>
+  var p = 3;
+  var q = 11;
+  var n = p*q;
+  var phi = (p-1)*(q-1);
+  var e = 7;
+  var d = 3;
+  
+  function encrypt(){
+         //public key is (e,n)
+         var EnterdPlainText = document.getElementById("enteredText").value;
+         var en = Math.pow(parseInt(EnterdPlainText),7) % 33;
+         document.getElementById("outpot").innerHTML = en ;
+  }
+  
+  function decrypt(){
+        //private key is (d,n)
+        var EnterdEncryptedText = document.getElementById("enteredText").value;
+        var dc = Math.pow(parseInt(EnterdEncryptedText),3) % 33;
+        document.getElementById("outpot").innerHTML = dc ;
+  }
+  
+  </script>
 </body>
 </html>
+
+
