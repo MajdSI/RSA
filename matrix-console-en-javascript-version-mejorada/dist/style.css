@@ -198,17 +198,20 @@
 		  /*drop down*/ 
 
 		  div.pull {
-			position: relative;
+			position: absolute;
 			top: -200px;
+			width: 20%;
+		
 			z-index: 12;
 			-webkit-transition: top 0.6s ease-in-out;
 		  }
 		  div.pull div.pulldown_menu {
-			background: #ae0e21;
+			background: linear-gradient(#141e30, #243b55);
 			width: 100%;
 			padding: 15px;
 			height: 200px;
 			position: relative;
+			border-radius: 3%;
 			-webkit-box-sizing: border-box;
 			box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.5);
 		  }
@@ -218,12 +221,12 @@
 		  }
 		  div.pull div.pulldown_menu span.pig img {
 			height: 150px;
-			border: 1px solid #6c0914;
+			border: 1px solid #cf8d99;
 			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 		  }
 		  div.pull div.pulldown_menu span.pig p {
 			font-size: 13px;
-			color: white;
+			color: rgb(233, 238, 235);
 			margin-top: 0;
 		  }
 		  div.pull div.pulldown {
@@ -232,8 +235,12 @@
 			-webkit-border-bottom-right-radius: 4px;
 			-webkit-border-bottom-left-radius: 4px;
 			margin: 0 auto;
-			background: #ae0e21;
-			border: 1px solid #920c1c;
+			background: #edeff0;
+			border: 1px solid #b0d2df;
+			box-shadow: 0 0 5px #03e9f4,
+						0 0 25px #08b562,
+						0 0 50px #2a4a36,
+						0 0 100px #03e9f4;
 			border-top: 0;
 			position: relative;
 		  }
@@ -243,7 +250,7 @@
 			left: 0;
 			content: ' ';
 			height: 3px;
-			background: #ae0e21;
+			background: #f5dde0;
 			width: 100%;
 		  }
 		  div.pull div.pulldown::before {
@@ -252,12 +259,12 @@
 			left: 20px;
 			content: ' ';
 			height: 3px;
-			background: #ae0e21;
+			background: #4c806d;
 			width: 0px;
 			height: 0px;
 			border-style: solid;
 			border-width: 6px 5px 0 5px;
-			border-color: #750916 transparent transparent transparent;
+			border-color: #4c806d transparent transparent transparent;
 		  }
 		  div.pull:hover {
 			top: 0;
@@ -265,5 +272,10 @@
 		  }
 		  div.pull.clicked {
 			top: 0;
+		  }
+
+		  .names{ 
+			color: #edeff0;
+			font-family:Arial, Helvetica, sans-serif;
 		  }
 		  
