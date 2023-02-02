@@ -33,7 +33,7 @@
   <h2>RSA</h2>
   <form>
     <div class="user-box">
-      <input id="enteredText" type="text" name="" required="">
+      <input id="enteredText" type="text" name="" required="" >
       <label>Write The Number To Encypt/Decrypt</label>
     </div>
     <div id="result">
@@ -59,7 +59,22 @@
       Decrypt
     </a>
   </form>
+
+
+
 </div>
+<!--alert-->
+
+ 
+
+<div class="mess" id="invalid">
+  <i > - Sorry!, Invalid Input Please Enter Integer Numbers Only  -  </i>
+  <a id="period">&times;</a>
+</div>
+
+
+
+
 <div class="pull"> 
   <div class="pulldown_menu" >
     <div class="names"> 
@@ -100,12 +115,17 @@
          //public key is (e,n)
          var EnterdPlainText = document.getElementById("enteredText").value;
          var numbers = /^[0-9]+$/;
+         const invalid = document.getElementById("invalid") ; 
+         const period = document.getElementById("period") ; 
       if(!EnterdPlainText.match(numbers)){
-          alert(`invalid input`);
+        invalid.style.display = 'block' ; 
+        period.style.opacity = '1' ; 
+
           return;
          }
          if (EnterdPlainText < 0 || EnterdPlainText >= n) {
-    alert(`Condition 0 <= m < n not met.`);
+          invalid.style.display = 'block' ; 
+        period.style.opacity = '1' ; 
     return;
   }
   
@@ -130,34 +150,8 @@
   </script>
 
 
-<section>
-  <div class="square_box box_three"></div>
-  <div class="square_box box_four"></div>
-  <div class="container mt-5">
-    <div class="row">
+<!--ALERT-->
 
-   
-
-    
-
-      <div class="col-sm-12">
-        <div class="alert fade alert-simple alert-danger alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
-          <button type="button" class="close font__size-18" data-dismiss="alert">
-									<span aria-hidden="true">
-										<i class="fa fa-times danger "></i>
-									</span>
-									<span class="sr-only">Close</span>
-								</button>
-          <i class="start-icon far fa-times-circle faa-pulse animated"></i>
-          <strong class="font__weight-semibold">Oh snap!</strong> Change a few things up and try submitting again.
-        </div>
-      </div>
-
-      
-
-    </div>
-  </div>
-</section>
 
 
 </body>
