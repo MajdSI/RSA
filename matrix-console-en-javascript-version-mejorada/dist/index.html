@@ -139,7 +139,8 @@
 
         var numbers = /^[0-9]+$/;
       if(!EnterdEncryptedText.match(numbers)){
-          alert(`invalid input`);
+        invalid.style.display = 'block' ; 
+        period.style.opacity = '1' ; 
           return;
          }
 
