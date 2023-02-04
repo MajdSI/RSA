@@ -10,13 +10,7 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<html>
-<head>
-	<title>Matrix Console version mejorada By Locoalien</title>
-	<meta charset="UTF-8">
-</head>
-<body>
-<!-- hi -->
+
 <canvas id="locoalien"></canvas>
 <script type="text/javascript">
 	</script>
@@ -30,7 +24,7 @@
   <!--The Additional code-->
   <!-- partial:index.partial.html -->
 <div class="login-box">
-  <h2>RSA</h2>
+  <h2>RSA (Rivest Shamir Adleman)</h2>
   <form>
     <div class="user-box">
       <input id="enteredText" type="text" name="" required="" >
@@ -72,7 +66,10 @@
   <a id="period">&times;</a>
 </div>
 
-
+<div class="mess" id="invalid2">
+  <i > - Sorry!, Number Entered Out Of The Range  -  </i>
+  <a id="period2">&times;</a>
+</div>
 
 
 <div class="pull"> 
@@ -80,11 +77,11 @@
     <div class="names"> 
     <a>Majd Alsayari </a>
   <br> 
-    <a>Leena Alsayari </a>
+    <a>Lena Alkhodhairi </a>
     <br> 
-    <span>Aliyah Alabdulkarim </span>
+    <span>Leena Alsayari </span>
     <br> 
-    <span>Lena Alkhodhairi </span>
+    <span>Aliyah Alabdulkarim</span>
     <br> 
     <span>Nuha Alhumaidani </span>
     <br> 
@@ -114,47 +111,67 @@
   function encrypt(){
          //public key is (e,n)
          var EnterdPlainText = document.getElementById("enteredText").value;
-         var numbers = /^[0-9]+$/;
-         const invalid = document.getElementById("invalid") ; 
-         const period = document.getElementById("period") ; 
-      if(!EnterdPlainText.match(numbers)){
-        invalid.style.display = 'block' ; 
-        period.style.opacity = '1' ; 
+         var numbers = /^-?[0-9]+$/;
 
+      if(!EnterdPlainText.match(numbers)){
+        setTimeout(inputError, 0);
           return;
          }
          if (EnterdPlainText < 0 || EnterdPlainText >= n) {
-          invalid.style.display = 'block' ; 
-        period.style.opacity = '1' ; 
+          setTimeout(largeNumError, 0);
     return;
   }
 
          var cipherText = EnterdPlainText ** e % n ;
-         document.getElementById("outpot").innerHTML = cipherText +"= " + EnterdPlainText + " ** " + e + " % " + n;
+         document.getElementById("outpot").innerHTML = cipherText ;
   }
   
   function decrypt(){
         //private key is (d,n)
         var EnterdEncryptedText = document.getElementById("enteredText").value;
 
-        var numbers = /^[0-9]+$/;
+        var numbers = /^-?[0-9]+$/;
       if(!EnterdEncryptedText.match(numbers)){
-        invalid.style.display = 'block' ; 
-        period.style.opacity = '1' ; 
+        setTimeout(inputError, 0);
           return;
          }
 
       if (EnterdEncryptedText < 0 || EnterdEncryptedText >= n) {
-          invalid.style.display = 'block' ; 
-        period.style.opacity = '1' ; 
+        setTimeout(largeNumError, 0);
     return;
   }
 
         var plainText = EnterdEncryptedText ** d % n ;
-        document.getElementById("outpot").innerHTML = plainText +"= " + EnterdEncryptedText + " ** " + d + " % " + n; 
-        //plainText +"= " + EnterdEncryptedText + " ** " + d + " % " + n;
+        document.getElementById("outpot").innerHTML = plainText; 
   }
   
+  const invalid = document.getElementById("invalid") ; 
+  const period = document.getElementById("period") ; 
+
+  function inputError(){
+    invalid.style.display = 'block' ; 
+    period.style.opacity = '1' ; 
+    document.getElementById("outpot").innerHTML = "" ;
+    setTimeout(stopInputError, 3000);
+  }
+
+  function stopInputError(){
+    invalid.style.display = 'none' ; 
+    period.style.opacity = '0' ; 
+  }
+
+ function largeNumError(){
+    invalid2.style.display = 'block' ; 
+    period2.style.opacity = '1' ; 
+    document.getElementById("outpot").innerHTML = "" ;
+    setTimeout(stopLargeNumError, 3000);
+  }
+
+  function stopLargeNumError(){
+    invalid2.style.display = 'none' ; 
+    period2.style.opacity = '0' ; 
+  }
+
   </script>
 
 
