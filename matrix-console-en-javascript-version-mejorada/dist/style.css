@@ -302,7 +302,7 @@
 		}
 			
 		.mess2{
-			width:24%;
+			width:400px;
 			margin-top: 40px;
 			 padding:20px;
 			 position:absolute;
@@ -310,7 +310,7 @@
 			 display: none;
 			 top: 8px;
 			 height: 1px;
-			 margin-left: 36%;
+			 margin-left: 34%;
 			 animation: show_slide 5s ease forwards;
 			 border: 1px solid rgba(241, 6, 6, 0.81);
 			 background-color: rgba(220, 17, 1, 0.16);
