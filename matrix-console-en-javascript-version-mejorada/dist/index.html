@@ -118,9 +118,10 @@
           return;
          }
          if (EnterdPlainText < 0 || EnterdPlainText >= n) {
-          largeNumError();
+          outOfRangeError();
     return;
   }
+
 
          document.getElementById("outpot").innerHTML = expmod(EnterdPlainText, e, n);
   }
@@ -136,7 +137,7 @@
          }
 
       if (EnterdEncryptedText < 0 || EnterdEncryptedText >= n) {
-        largeNumError();
+        outOfRangeError();
     return;
   }
 
@@ -168,14 +169,14 @@
     period.style.opacity = '0' ; 
   }
 
- function largeNumError(){
+ function outOfRangeError(){
     invalid2.style.display = 'block' ; 
     period2.style.opacity = '1' ; 
     document.getElementById("outpot").innerHTML = "" ;
-    setTimeout(stopLargeNumError, 3000);
+    setTimeout(stopOutOfRangeError, 3000);
   }
 
-  function stopLargeNumError(){
+  function stopOutOfRangeError(){
     invalid2.style.display = 'none' ; 
     period2.style.opacity = '0' ; 
   }
