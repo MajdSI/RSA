@@ -101,12 +101,12 @@
 
 
 <script>
-  var p = 5;
+  var p = 19;
   var q = 7;
   var n = p*q;
   var phi = (p-1)*(q-1);
-  var e = 7;
-  var d = 7;
+  var e = 29;
+  var d = 41;
   
   function encrypt(){
          //public key is (e,n)
@@ -114,16 +114,17 @@
          var numbers = /^-?[0-9]+$/;
 
       if(!EnterdPlainText.match(numbers)){
-        setTimeout(inputError, 0);
+        inputError();
           return;
          }
          if (EnterdPlainText < 0 || EnterdPlainText >= n) {
-          setTimeout(largeNumError, 0);
+          largeNumError();
     return;
   }
 
          var cipherText = EnterdPlainText ** e % n ;
-         document.getElementById("outpot").innerHTML = cipherText ;
+         document.getElementById("outpot").innerHTML = expmod(EnterdPlainText, e, n);
+         //cipherText ;
   }
   
   function decrypt(){
@@ -132,17 +133,28 @@
 
         var numbers = /^-?[0-9]+$/;
       if(!EnterdEncryptedText.match(numbers)){
-        setTimeout(inputError, 0);
+        inputError();
           return;
          }
 
       if (EnterdEncryptedText < 0 || EnterdEncryptedText >= n) {
-        setTimeout(largeNumError, 0);
+        largeNumError();
     return;
   }
 
         var plainText = EnterdEncryptedText ** d % n ;
-        document.getElementById("outpot").innerHTML = plainText; 
+        document.getElementById("outpot").innerHTML = expmod(EnterdEncryptedText, d, n);
+        //plainText; 
+  }
+
+  function expmod(base, exp, mod){
+    if(exp == 0) return 1;
+    if(exp %2 == 0){
+      return Math.pow( expmod(base, exp/2, mod), 2) % mod;
+    }
+    else{
+      return (base * expmod(base, (exp-1), mod)) % mod ;
+    }
   }
   
   const invalid = document.getElementById("invalid") ; 
