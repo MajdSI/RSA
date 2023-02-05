@@ -122,9 +122,7 @@
     return;
   }
 
-         var cipherText = EnterdPlainText ** e % n ;
          document.getElementById("outpot").innerHTML = expmod(EnterdPlainText, e, n);
-         //cipherText ;
   }
   
   function decrypt(){
@@ -142,9 +140,7 @@
     return;
   }
 
-        var plainText = EnterdEncryptedText ** d % n ;
         document.getElementById("outpot").innerHTML = expmod(EnterdEncryptedText, d, n);
-        //plainText; 
   }
 
   function expmod(base, exp, mod){
